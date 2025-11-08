@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  student-service:
+    build: ./student-service
+    container_name: student-service
+    ports:
+      - "3000:3000"
+
+  report-service:
+    build: ./report-service
+    container_name: report-service
+    ports:
+      - "8000:8000"
+    depends_on:
+      - student-service
